@@ -46,13 +46,13 @@
 	weak
 [file ".github/workflows/build.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/build.yml
-	sha = bb7fff5b3942852f9ff50370e017843f5b5d6c55
-	etag = 7348a5c6179fd61228ccdae63d672c9f91fcdcd7e4901c2ecf9b35c7186b5491
+	sha = db76fb9dd72b42a870f76cdf05b6b74fa32e7751
+	etag = 980b0b303f209c5b31de5ce6cfdbd769fb5e1aa956f8926a2638f5d37e0521d3
 	weak
 [file ".github/workflows/dotnet-file.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml
-	sha = 094043587f7e7313a0a77dece1532fbcb1ce8555
-	etag = 15333d15756257ec2d7975ea3ba5a22d1e3fae98aab35d83d67a728628e90cea
+	sha = 084aa7c36ee1c262ea2f9e83931068366a7b4312
+	etag = 501f8bf58287fdd7467701342f7251a015bc29664b494e7d81a71c0c55bee61f
 	weak
 [file ".github/workflows/sponsors.ps1"]
 	url = https://github.com/devlooped/.github/blob/main/.github/workflows/sponsors.ps1
