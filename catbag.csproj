@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove=".gitattributes;.gitignore;.netconfig;code-of-conduct.md;license.txt;security.md;support.md" />
+    <None Remove=".gitattributes;.gitignore;code-of-conduct.md;license.txt;security.md;support.md" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
