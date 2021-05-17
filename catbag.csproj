@@ -3,7 +3,8 @@
   <PropertyGroup>
     <RootNamespace>System</RootNamespace>
     <AssemblyName>Devlooped</AssemblyName>
-    <TargetFrameworks>netstandard2.0;net472;net5.0</TargetFrameworks>
+    <TargetFrameworks>net472;net5.0</TargetFrameworks>
+    <TargetFrameworks Condition="$(BuildingInsideVisualStudio) != 'true'">netstandard2.0;$(TargetFrameworks)</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -14,11 +15,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.8" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="16.9.4" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="16.9.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
   </ItemGroup>
