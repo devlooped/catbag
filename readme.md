@@ -4,8 +4,9 @@ A repository of loose helpers, base clases and assorted code that can be trivial
 individually or by folders, using [dotnet-file](https://github.com/devlooped/dotnet-file).
 
 > **cat**:  
-> 1. [cat](http://www.linfo.org/cat.html) is one of the most frequently used commands on Unix-like operating systems. It has three related functions with regard to text files: displaying them, combining copies of them and creating new ones.
-> 2. (bag): in spanish, "bolsa de gatos". In Argentina, roughly a "mixed bag" of code, especially when 
+> 1. [cat](http://www.linfo.org/cat.html) is one of the most frequently used commands on Unix-like operating systems. 
+> It has three related functions with regards to text files: displaying them, combining copies of them and creating new ones.
+> 2. (bag): in spanish, "bolsa de gatos". In Argentina, roughly a "mixed bag" of code, especially 
 > when referring to projects like "Helpers" and "Common" which everyone hates but can't quite avoid.
 
 You can efectively "cat" files from this repo straight into yours. 
