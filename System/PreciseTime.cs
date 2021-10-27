@@ -35,10 +35,9 @@ namespace System
     /// </summary>
     static partial class PreciseTime
     {
-        static readonly long startTimestamp = Stopwatch.GetTimestamp();
-        // We just preserve milliseconds precision from DateTimeOffset, which is precise enough for 
-        // adding the timestamps on top.
-        static readonly long startTicks = DateTimeOffset.UtcNow.Ticks / TimeSpan.TicksPerMillisecond * TimeSpan.TicksPerMillisecond;
+        static readonly Stopwatch watch = Stopwatch.StartNew();
+        // We just preserve seconds precision from DateTimeOffset.
+        static readonly long startTicks = DateTimeOffset.UtcNow.Ticks / TimeSpan.TicksPerSecond * TimeSpan.TicksPerSecond;
 
         /// <summary>
         /// Gets the elapsed time since the initial usage of <see cref="PreciseTime"/>.
@@ -47,18 +46,19 @@ namespace System
 
         /// <summary>
         /// Gets the high-precision value of the current UTC date time, with 10.000.000ths of a 
-        /// second precision (within the current process).
+        /// second precision (within the current process), if supported by the underlying runtime 
+        /// and OS, as indicated by <see cref="Stopwatch.IsHighResolution"/>.
         /// </summary>
-        public static DateTimeOffset UtcNow => new DateTimeOffset(GetUtcNowTicks(), TimeSpan.Zero);
+        public static DateTimeOffset UtcNow => Stopwatch.IsHighResolution ?
+            new DateTimeOffset(GetUtcNowTicks(), TimeSpan.Zero) :
+            DateTimeOffset.UtcNow;
 
         static long GetUtcNowTicks()
         {
             // Calculate the fractional elapsed seconds since we started
-            double elapsedTicks = (Stopwatch.GetTimestamp() - startTimestamp) / (double)Stopwatch.Frequency;
-            // Discard milliseconds, which we're getting from DateTimeOffset.UtcNow ticks
-            double microsecTicks = (elapsedTicks * 1000) - (int)elapsedTicks * 1000;
-
-            return startTicks + (long)(microsecTicks * 10000);
+            double elapsedTicks = watch.ElapsedTicks / (double)Stopwatch.Frequency;
+            // Add back with same resolution per second we removed from start ticks.
+            return startTicks + (long)(elapsedTicks * Stopwatch.Frequency);
         }
     }
 }
