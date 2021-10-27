@@ -150,7 +150,7 @@ namespace System.Xml
         /// <summary>
         /// See <see cref="XmlReader.BaseURI"/>.
         /// </summary>
-        public override string? BaseURI => BaseReader.BaseURI;
+        public override string BaseURI => BaseReader.BaseURI;
 
         /// <summary>
         /// See <see cref="XmlReader.Depth"/>.

@@ -57,6 +57,6 @@ namespace System.Xml
             => this.baseURI = baseURI;
 
         /// <inheritdoc />
-        public override string? BaseURI => baseURI;
+        public override string BaseURI => baseURI;
     }
 }
