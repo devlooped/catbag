@@ -53,6 +53,13 @@ namespace System
             new DateTimeOffset(GetUtcNowTicks(), TimeSpan.Zero) :
             DateTimeOffset.UtcNow;
 
+        /// <summary>
+        /// Gets the high-precision value of the current local date time, with 10.000.000ths of a 
+        /// second precision (within the current process), if supported by the underlying runtime 
+        /// and OS, as indicated by <see cref="Stopwatch.IsHighResolution"/>.
+        /// </summary>
+        public static DateTimeOffset Now => Stopwatch.IsHighResolution ? UtcNow.ToLocalTime() : DateTimeOffset.Now;
+        
         static long GetUtcNowTicks()
         {
             // Calculate the fractional elapsed seconds since we started
