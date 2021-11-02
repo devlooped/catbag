@@ -14,7 +14,7 @@ namespace System
         [Fact]
         public void WhenGettingNow_ThenThereAreNeverDuplicates()
         {
-            var iterations = Stopwatch.Frequency / TimeSpan.TicksPerMillisecond;
+            var iterations = TimeSpan.TicksPerMillisecond;
             for (var i = 0; i < iterations; i++)
             {
                 var first = PreciseTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
@@ -31,7 +31,7 @@ namespace System
         [Fact]
         public void WhenGettingNow_ThenValuesAreAlwaysIncrementing()
         {
-            var iterations = Stopwatch.Frequency / TimeSpan.TicksPerMillisecond;
+            var iterations = TimeSpan.TicksPerMillisecond;
             var last = PreciseTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
             var dupes = 0;
             for (var i = 0; i < iterations; i++)

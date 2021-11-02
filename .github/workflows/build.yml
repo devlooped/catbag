@@ -61,7 +61,6 @@ jobs:
           echo 'export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"' >> .bash_profile
 
       - name: 🧪 test
-        if: matrix.os == 'windows-latest'
         shell: bash --noprofile --norc {0}
         env:
           LC_ALL: en_US.utf8
