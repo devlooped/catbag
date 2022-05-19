@@ -1,3 +1,45 @@
+[file]
+	url = https://github.com/devlooped/oss
+[file ".netconfig"]
+	url = https://github.com/devlooped/oss/blob/main/.netconfig
+	skip
+[file "readme.md"]
+	url = https://github.com/devlooped/oss/blob/main/readme.md
+	skip
+[file "license.txt"]
+	url = https://github.com/devlooped/oss/blob/main/license.txt
+	skip
+[file "_config.yml"]
+	url = https://github.com/devlooped/oss/blob/main/_config.yml
+	skip
+[file "src/icon.png"]
+	url = https://github.com/devlooped/oss/blob/main/src/icon.png
+	skip
+[file "src/kzu.snk"]
+	url = https://github.com/devlooped/oss/blob/main/src/kzu.snk
+	skip
+[file "Directory.Build.rsp"]
+	url = https://github.com/devlooped/oss/blob/main/Directory.Build.rsp
+	skip
+[file "src/Directory.Build.props"]
+	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.props
+	skip
+[file "src/Directory.Build.targets"]
+	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.targets
+	skip
+[file "src/nuget.config"]
+	url = https://github.com/devlooped/oss/blob/main/src/nuget.config
+	skip
+[file "assets/css/style.scss"]
+	url = https://github.com/devlooped/oss/blob/main/assets/css/style.scss
+	skip
+[file "assets/images/sponsors.svg"]
+	url = https://github.com/devlooped/oss/blob/main/assets/images/sponsors.svg
+	skip
+[file "assets/images/sponsors.png"]
+	url = https://github.com/devlooped/oss/blob/main/assets/images/sponsors.png
+	skip
+
 [file ".editorconfig"]
 	url = https://github.com/devlooped/oss/blob/main/.editorconfig
 	sha = 0683ee777d7d878d4bf013d7deea352685135a05
