@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<foo name="hi" position="First" letter="a" guid="{F0376E1F-D255-4AF8-AB41-585434C93B20}" time="PT10H">
+	<time>PT10H</time>
+	<guid>{F0376E1F-D255-4AF8-AB41-585434C93B20}</guid>
+	<letter>a</letter>
+	<position>1</position>
+	<id>22</id>
+	<date>2011-02-21T17:00:00-03:00</date>
+	<bar>
+		<baz id="22">
+			hello world
+		</baz>
+	</bar>
+	<system.web>
+		<compilation debug="true"/>
+		<handler name="foo"/>
+		<handler name="bar"/>
+		<handler name="baz"/>
+	</system.web>
+</foo>
