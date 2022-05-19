@@ -30,7 +30,7 @@ Once downloaded, [dotnet-file](https://github.com/devlooped/dotnet-file) creates
 [dotnet-config](https://dotnetconfig.org/) file in the current directory named `.netconfig` as follows:
 
 ```
-[file "src/common/System/Xml/XmlWrappingReader.cs"]
+[file "src/Common/System/Xml/XmlWrappingReader.cs"]
 	url = https://github.com/devlooped/catbag/blob/main/System/Xml/XmlWrappingReader.cs
 	sha = 19be5e474022ab5b8993b29509a3929439f510e9
 	etag = a4dba639f18b47a9e480704abf86b1ba2582c54b76a520d7ed988aa1efcd7b8d
