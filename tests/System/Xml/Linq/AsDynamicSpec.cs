@@ -13,7 +13,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAccessingAttribute_ThenUsesIndexerSyntaxWithString()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var name = dyn["name"];
@@ -24,7 +24,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAccessingElementUsingIndexerSyntax_ThenCanUseSimpleString()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var name = dyn["id"];
@@ -35,7 +35,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAccessingElementUsingIndexerSyntax_ThenCanUseXName()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var name = dyn[XName.Get("id")];
@@ -46,7 +46,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAccessingElementsUsingIndexerSyntax_ThenCanUseSimpleString()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var handlers = dyn["system.web"]["handler"];
@@ -57,7 +57,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAccessingElementsUsingIndexerSyntax_ThenCanUseXName()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var handlers = dyn["system.web"][XName.Get("handler")];
@@ -68,7 +68,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAccessingAttribute_ThenUsesIndexerSyntaxWithXName()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var name = dyn[XName.Get("name")];
@@ -79,7 +79,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenSettingAttributeStringValue_ThenUsesIndexerSyntaxWithString()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dyn["name"] = "hi";
@@ -90,7 +90,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenSettingAttributeStringValue_ThenUsesIndexerSyntaxWithXName()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dyn[XName.Get("name")] = "hi";
@@ -101,7 +101,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenSettingElementStringValue_ThenUsesIndexerSyntaxWithString()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dyn["id"] = 2;
@@ -112,7 +112,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenSettingElementStringValue_ThenUsesIndexerSyntaxWithXName()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dyn[XName.Get("id")] = 2;
@@ -123,7 +123,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAddingAttributeStringValue_ThenUsesIndexerSyntaxWithString()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dyn["foo"] = "bar";
@@ -134,7 +134,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAddingAttributeStringValue_ThenUsesIndexerSyntaxWithXName()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dyn[XName.Get("foo")] = "bar";
@@ -145,7 +145,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenTraversingChildNodes_ThenUsesDottedSyntax()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var baz = dyn.bar.baz;
@@ -156,7 +156,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenAttributeToString_ThenReturnsValue()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         var id = dyn.bar.baz["id"].ToString();
@@ -167,7 +167,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementsToDynamicArray_ThenSucceeds()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dynamic[] handlers = dyn["system.web"].handler;
@@ -178,7 +178,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementsToEnumerableOfObject_ThenSucceeds()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<object> handlers = dyn["system.web"].handler;
@@ -189,7 +189,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementsToEnumerableOfDynamic_ThenSucceeds()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<dynamic> handlers = dyn["system.web"].handler;
@@ -200,7 +200,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementsToEnumerableOfDynamicObject_ThenSucceeds()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<DynamicObject> handlers = dyn["system.web"].handler;
@@ -211,7 +211,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementToDynamicArray_ThenExposesChildElements()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         dynamic[] elements = dyn["system.web"];
@@ -222,7 +222,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementToEnumerableOfObject_ThenExposesChildElements()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<object> elements = dyn["system.web"];
@@ -233,7 +233,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementToEnumerableOfDynamic_ThenExposesChildElements()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<dynamic> elements = dyn["system.web"];
@@ -244,7 +244,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingElementToEnumerableOfDynamicObject_ThenExposesChildElements()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<DynamicObject> elements = dyn["system.web"];
@@ -255,7 +255,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToInt_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         int id = dyn.id;
@@ -270,7 +270,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToInt16_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Int16 id = dyn.id;
@@ -285,7 +285,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToUInt16_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         UInt16 id = dyn.id;
@@ -300,7 +300,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToUInt64_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         UInt64 id = dyn.id;
@@ -315,7 +315,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToSByte_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         sbyte id = dyn.id;
@@ -330,7 +330,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToSingle_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Single id = dyn.id;
@@ -345,7 +345,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToTimespan_ThenPerformsXmlDurationConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         TimeSpan expected = TimeSpan.FromHours(10);
@@ -361,7 +361,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToLong_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         long id = dyn.id;
@@ -376,7 +376,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToByte_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         byte id = dyn.id;
@@ -391,7 +391,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToDecimal_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         decimal id = dyn.id;
@@ -406,7 +406,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToGuid_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Guid expected = new Guid("{F0376E1F-D255-4AF8-AB41-585434C93B20}");
@@ -422,7 +422,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToDouble_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         double id = dyn.id;
@@ -437,7 +437,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingChar_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         char id = dyn["letter"];
@@ -452,7 +452,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToUInt_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         uint id = dyn.id;
@@ -467,7 +467,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToBoolean_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         bool id = dyn.position;
@@ -482,7 +482,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToDateTime_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         DateTime value = dyn.date;
@@ -493,7 +493,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToDateTimeOffset_ThenPerformsXmlConversion()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         DateTimeOffset value = dyn.date;
@@ -504,7 +504,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToXAttribute_ThenGetsUnderlyingAttribute()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         XAttribute id = dyn.bar.baz["id"];
@@ -515,7 +515,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingToXElement_ThenGetsUnderlyingElement()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         XElement id = dyn.id;
@@ -526,7 +526,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingStringToEnum_ThenParsesEnum()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Position value = dyn["position"];
@@ -537,7 +537,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingIntToEnum_ThenParsesEnum()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Position value = dyn.position;
@@ -548,7 +548,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenCastingAttributeToInvalidType_ThenThrows()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Assert.Throws<RuntimeBinderException>(() => (Type)dyn["position"]);
@@ -563,7 +563,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenElementNameHasDot_ThenCanUseIndexerNotation()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         XElement web = dyn["system.web"];
@@ -574,7 +574,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenMultipleElements_ThenCanUseElementIndex()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Assert.Equal("foo", (string)dyn["system.web"].handler[0]["name"]);
@@ -585,7 +585,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenMultipleElements_ThenNonIntegerIndexFails()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Assert.Throws<RuntimeBinderException>(() => dyn["system.web"].handler["blag"]);
@@ -594,7 +594,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenMultipleElements_ThenCanCastToEnumerableOfElement()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<XElement> elements = dyn["system.web"].handler;
@@ -606,7 +606,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenMultipleElements_ThenCanCastToEnumerableOfDynamicObject()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<DynamicObject> elements = dyn["system.web"].handler;
@@ -618,7 +618,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenElementConvertedToEnumerableElement_ThenSucceeds()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         IEnumerable<XElement> elements = dyn;
@@ -630,7 +630,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenElementConvertedToInvalidType_ThenThrows()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Assert.Throws<RuntimeBinderException>(() => (string[])dyn);
@@ -639,7 +639,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenMultipleElements_ThenCastingToNonEnumerableOfElementFails()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var dyn = doc.Root.AsDynamic();
 
         Assert.Throws<RuntimeBinderException>(() => (string[])dyn["system.web"].handler);
@@ -648,7 +648,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenMultipleElements_ThenCanIterate()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var elements = doc.Root.AsDynamic()["system.web"].handler;
 
         foreach (var element in elements)
@@ -660,7 +660,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenIteratingElement_ThenIteratesAllChildren()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var elements = doc.Root.AsDynamic()["system.web"];
 
         foreach (var element in elements)
@@ -672,7 +672,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenIteratingElement_ThenCanCastToXElement()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var elements = ((IEnumerable)doc.Root.AsDynamic()["system.web"]).Cast<XElement>();
 
         Assert.Contains(elements, e => e.Name.LocalName == "compilation");
@@ -682,7 +682,7 @@ public record AsDynamicSpec(ITestOutputHelper Output)
     [Fact]
     public void WhenIteratingElements_ThenCanConvertToElements()
     {
-        var doc = XDocument.Load(@"tests\System\Xml\Linq\AsDynamicSample.xml");
+        var doc = XDocument.Load(@"tests/System/Xml/Linq/AsDynamicSample.xml");
         var elements = (IEnumerable<XElement>)doc.Root.AsDynamic()["system.web"];
 
         Assert.Equal(4, elements.Count());
