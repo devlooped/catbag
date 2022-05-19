@@ -10,8 +10,8 @@
 	weak
 [file ".gitignore"]
 	url = https://github.com/devlooped/oss/blob/main/.gitignore
-	sha = a9f9d3f5db6dd0714f52da61e35ab233fd0a1642
-	etag = e6ba96dc8c185a4e9c64f7c2c8003ef86e8f73624865ff7f6ae955aad55a164e
+	sha = 978c71c6afd095eaba35097fd7deed44fa09aa91
+	etag = 2b49512f81b6cb44c4ee398975c0edf41bfa4137857b59770805fa7c5e49e94b
 	weak
 [file "code-of-conduct.md"]
 	url = https://github.com/devlooped/oss/blob/main/code-of-conduct.md
@@ -46,8 +46,8 @@
 	weak
 [file ".github/workflows/build.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/build.yml
-	sha = 964caa363fe9cd8ef01c8a5d8e3fd07d1aed35ae
-	etag = ef5ed75b1e23292dd7af196a11f04760aa5ad4a3f374095395da9abc2de3f24f
+	sha = bbf637b2a565073a89783c9eb4ebd9c460823fe4
+	etag = 6b9139f22428851c8d7329973f3d92802d25e70a5e0c1b24604c23db991ac8e2
 	weak
 [file ".github/workflows/dotnet-file.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml
