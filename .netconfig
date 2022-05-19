@@ -1,45 +1,3 @@
-[file]
-	url = https://github.com/devlooped/oss
-[file ".netconfig"]
-	url = https://github.com/devlooped/oss/blob/main/.netconfig
-	skip
-[file "readme.md"]
-	url = https://github.com/devlooped/oss/blob/main/readme.md
-	skip
-[file "license.txt"]
-	url = https://github.com/devlooped/oss/blob/main/license.txt
-	skip
-[file "_config.yml"]
-	url = https://github.com/devlooped/oss/blob/main/_config.yml
-	skip
-[file "src/icon.png"]
-	url = https://github.com/devlooped/oss/blob/main/src/icon.png
-	skip
-[file "src/kzu.snk"]
-	url = https://github.com/devlooped/oss/blob/main/src/kzu.snk
-	skip
-[file "Directory.Build.rsp"]
-	url = https://github.com/devlooped/oss/blob/main/Directory.Build.rsp
-	skip
-[file "src/Directory.Build.props"]
-	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.props
-	skip
-[file "src/Directory.Build.targets"]
-	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.targets
-	skip
-[file "src/nuget.config"]
-	url = https://github.com/devlooped/oss/blob/main/src/nuget.config
-	skip
-[file "assets/css/style.scss"]
-	url = https://github.com/devlooped/oss/blob/main/assets/css/style.scss
-	skip
-[file "assets/images/sponsors.svg"]
-	url = https://github.com/devlooped/oss/blob/main/assets/images/sponsors.svg
-	skip
-[file "assets/images/sponsors.png"]
-	url = https://github.com/devlooped/oss/blob/main/assets/images/sponsors.png
-	skip
-
 [file ".editorconfig"]
 	url = https://github.com/devlooped/oss/blob/main/.editorconfig
 	sha = 0683ee777d7d878d4bf013d7deea352685135a05
@@ -105,4 +63,9 @@
 	url = https://github.com/devlooped/.github/blob/main/.github/workflows/sponsors.yml
 	sha = 514760df24bd906b9e5d3a56deac0d18cba59a6d
 	etag = 0236ed96c1d11f69b26ac0e039e74107df5731574236e2de2a83152fee5df0a6
+	weak
+[file ".github/workflows/test/action.yml"]
+	url = https://github.com/devlooped/oss/blob/main/.github/workflows/test/action.yml
+	sha = 9a1b07589b9bde93bc12528e9325712a32dec418
+	etag = b54216ac431a83ce5477828d391f02046527e7f6fffd21da1d03324d352c3efb
 	weak
