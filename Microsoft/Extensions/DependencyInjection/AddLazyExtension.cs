@@ -33,7 +33,7 @@ namespace Microsoft.Extensions.DependencyInjection
     /// that allows resolving services lazily by taking a dependency on <see cref="Lazy{T}"/>.
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
-    static partial class LazyServiceExtension
+    static partial class AddLazyExtension
     {
         /// <summary>
         /// Allows resolving any service lazily using <see cref="Lazy{T}"/> as 
