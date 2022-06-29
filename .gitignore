@@ -31,3 +31,4 @@ _site
 .jekyll-cache
 Gemfile.lock
 package-lock.json
+/catbag.sln
