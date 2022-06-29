@@ -23,6 +23,8 @@
 // SOFTWARE.
 #endregion
 
+using System.Runtime.CompilerServices;
+
 namespace System.Threading.Tasks
 {
     /// <summary>
@@ -77,7 +79,12 @@ namespace System.Threading.Tasks
         /// Initializes the lazy, using <see cref="Task.Run(Func{Task{T}})"/> to asynchronously 
         /// schedule the value factory execution.
         /// </summary>
-        public AsyncLazy(Func<Task<T>> asyncValueFactory) : base(() => Task.Run(async () => await asyncValueFactory()))
+        public AsyncLazy(Func<Task<T>> asyncValueFactory) : base(() => Task.Run(() => asyncValueFactory()))
         { }
+
+        /// <summary>
+        /// Allows awaiting the async lazy directly.
+        /// </summary>
+        public TaskAwaiter<T> GetAwaiter() => Value.GetAwaiter();
     }
 }

@@ -35,5 +35,13 @@ namespace System.Threading.Tasks
 
             Assert.Equal(25, await lazy.Value);
         }
+
+        [Fact]
+        public async Task AwaitAsyncLazy()
+        {
+            var lazy = new AsyncLazy<int>(async () => await Task.FromResult(25));
+
+            Assert.Equal(25, await lazy);
+        }
     }
 }
