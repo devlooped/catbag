@@ -24,6 +24,8 @@
 #endregion
 
 #nullable enable
+using System.Threading.Tasks;
+
 namespace System.Xml
 {
     /// <summary>
