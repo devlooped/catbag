@@ -64,7 +64,7 @@ namespace System.Xml
         public override bool CanResolveEntity => BaseReader.CanResolveEntity;
 
         /// <summary>
-        /// See <see cref="XmlReader.Dispose"/>.
+        /// See <see cref="XmlReader.Dispose(bool)"/>.
         /// </summary>
         protected override void Dispose(bool disposing)
         {
