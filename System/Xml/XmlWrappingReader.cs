@@ -24,6 +24,8 @@
 #endregion
 
 #nullable enable
+using System.Threading.Tasks;
+
 namespace System.Xml
 {
     /// <summary>
@@ -38,7 +40,7 @@ namespace System.Xml
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlWrappingReader"/>.
         /// </summary>
-        /// <param name="BaseReader">The underlying reader this instance will wrap.</param>
+        /// <param name="baseReader">The underlying reader this instance will wrap.</param>
         protected XmlWrappingReader(XmlReader baseReader) => BaseReader = baseReader;
 
         /// <summary>
@@ -62,7 +64,7 @@ namespace System.Xml
         public override bool CanResolveEntity => BaseReader.CanResolveEntity;
 
         /// <summary>
-        /// See <see cref="XmlReader.Dispose"/>.
+        /// See <see cref="XmlReader.Dispose(bool)"/>.
         /// </summary>
         protected override void Dispose(bool disposing)
         {
