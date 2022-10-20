@@ -86,5 +86,10 @@ namespace System.Threading.Tasks
         /// Allows awaiting the async lazy directly.
         /// </summary>
         public TaskAwaiter<T> GetAwaiter() => Value.GetAwaiter();
+        
+        /// <summary>
+        /// Gets a value indicating whether the value factory has been invoked and has run to completion.
+        /// </summary>
+        public bool IsValueFactoryCompleted => base.Value.IsCompleted;        
     }
 }
