@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using System.Collections.Generic;
 using Xunit;
 using Xunit.Abstractions;
 
