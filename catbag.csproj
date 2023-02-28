@@ -23,7 +23,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.4.2244" />
     <PackageReference Include="EnvDTE" Version="17.4.33103.184" />
-    <PackageReference Include="Moq" Version="4.18.2" />
+    <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="PolySharp" Version="1.12.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
