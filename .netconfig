@@ -30,8 +30,8 @@
 	weak
 [file ".github/workflows/build.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/build.yml
-	sha = 1ec63850f943894e4b032cfc8721ff1aaffda7e0
-	etag = 8a28f50655857cd25e97709354943b9665fb5efe05cf637860f2c45315c5f5e7
+	sha = 543f7daf1e8a63ea0dc599ae0494df7d1a90caa4
+	etag = 6abaf57f2624bc65517b8cc7b8a4b7e34542cf26f2ebcd1935a15a2a075c8733
 	weak
 [file ".github/workflows/dotnet-file.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml
