@@ -21,7 +21,7 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.4.2244" />
+    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.5.2145" />
     <PackageReference Include="EnvDTE" Version="17.4.33103.184" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="PolySharp" Version="1.12.1">
