@@ -1,7 +1,7 @@
 [file ".editorconfig"]
 	url = https://github.com/devlooped/oss/blob/main/.editorconfig
-	sha = 448cf45a26e068fe5d7164ea48d1dc8bf620df46
-	etag = 897634b9ba05c00e8ef35b24533d31bc43a5299be5a64e240109ba4c00fcad15
+	sha = c779d3d4e468358106dea03e93ba2cd35bb01ecb
+	etag = 7298c6450967975a8782b5c74f3071e1910fc59686e48f9c9d5cd7c68213cf59
 	weak
 [file ".gitattributes"]
 	url = https://github.com/devlooped/oss/blob/main/.gitattributes
@@ -10,8 +10,8 @@
 	weak
 [file ".gitignore"]
 	url = https://github.com/devlooped/oss/blob/main/.gitignore
-	sha = c78868eba59a3e04602434684f9eac241fef13fb
-	etag = 1c1705a3f0ed65e33c9133996ebaa100aa445a8b968b2904ad48fef938702006
+	sha = b87a8a795a4c2b6830602225c066c11108552a99
+	etag = 96e0860052044780f1fc9e3bdfbee09d82d5dddb8b1217d67460fc7330a64dd8
 	weak
 [file "license.txt"]
 	url = https://github.com/devlooped/oss/blob/main/license.txt
@@ -30,8 +30,8 @@
 	weak
 [file ".github/workflows/build.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/build.yml
-	sha = 543f7daf1e8a63ea0dc599ae0494df7d1a90caa4
-	etag = 6abaf57f2624bc65517b8cc7b8a4b7e34542cf26f2ebcd1935a15a2a075c8733
+	sha = 13d67e2cf3f786c8189364fd29332aaa7dc575dc
+	etag = c616df0877fba60002ccfc0397e9f731ddb22acbbb195a0598fedd4cac5f3135
 	weak
 [file ".github/workflows/dotnet-file.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml
