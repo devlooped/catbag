@@ -24,7 +24,6 @@
 #endregion
 
 #nullable enable
-using System.Linq;
 using System.Numerics;
 using System.Text;
 
@@ -53,7 +52,11 @@ namespace System
                 value /= 62;
             }
 
-            return new string(sb.ToString().Reverse().ToArray());
+            // Reverse the string, since we're building it backwards, 
+            var chars = sb.ToString().ToCharArray();
+            Array.Reverse(chars);
+
+            return new string(chars);
         }
 
         /// <summary>
