@@ -38,6 +38,12 @@ namespace System
     static partial class Base62
     {
         /// <summary>
+        /// Encodes a Guid into a base62 string.
+        /// </summary>
+        public static string ToBase62(this Guid guid) 
+            => Encode(BigInteger.Abs(new BigInteger(guid.ToByteArray())));
+
+        /// <summary>
         /// Encodes a numeric value into a base62 string.
         /// </summary>
         public static string Encode(BigInteger value)
