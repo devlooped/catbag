@@ -31,6 +31,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text.Json;
@@ -105,6 +106,18 @@ public static partial class AppServiceAuthenticationExtensions
                         }
                     }
 
+                    // Retrieve verified emails too if possible
+                    resp = await http.GetAsync("https://api.github.com/user/emails");
+                    if (resp.IsSuccessStatusCode &&
+                        await content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
+                    {
+                        // We only populate verified emails, otherwise, it would be trivial to fake.
+                        foreach (var email in emails.Where(x => x.verified))
+                        {
+                            claims.Add(new(ClaimTypes.Email, email.email));
+                        }
+                    }
+
                     context.Features.Set(new ClaimsPrincipal(
                         new ClaimsIdentity(claims, "github")));
 
@@ -117,5 +130,7 @@ public static partial class AppServiceAuthenticationExtensions
 
             await next(context);
         }
+
+        record Email(string email, bool verified);
     }
 }
