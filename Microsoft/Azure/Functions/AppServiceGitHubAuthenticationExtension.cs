@@ -101,8 +101,14 @@ public static partial class AppServiceAuthenticationExtensions
                             prop.Value.ValueKind != JsonValueKind.Array &&
                             prop.Value.ToString() is { Length: > 0 } value)
                         {
-                            // For compatiblity with the app service principal populated claims.
-                            claims.Add(new Claim("urn:github:" + prop.Name, value));
+                            // Make sure we're (mostly?) compatible with the app service auth claims
+                            claims.Add(prop.Name switch
+                            {
+                                "id" => new(ClaimTypes.NameIdentifier, value),
+                                "name" => new(ClaimTypes.Name, value),
+                                "email" => new(ClaimTypes.Email, value),
+                                _ => new("urn:github:" + prop.Name, value)
+                            });
                         }
                     }
 
@@ -111,10 +117,13 @@ public static partial class AppServiceAuthenticationExtensions
                     if (resp.IsSuccessStatusCode &&
                         await resp.Content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
                     {
+                        var primary = claims.Find(x =>x.Type == ClaimTypes.Email);
                         // We only populate verified emails, otherwise, it would be trivial to fake.
                         foreach (var email in emails.Where(x => x.verified))
                         {
-                            claims.Add(new(ClaimTypes.Email, email.email));
+                            // Don't duplicate the primary email.
+                            if (primary?.Value != email.email)
+                                claims.Add(new(ClaimTypes.Email, email.email));
                         }
                     }
 
@@ -130,7 +139,7 @@ public static partial class AppServiceAuthenticationExtensions
 
             await next(context);
         }
-
+            
         record Email(string email, bool verified);
     }
 }
