@@ -86,8 +86,8 @@ public static partial class AppServiceAuthenticationExtensions
                 // CLI auth using device flow
                 using var http = httpFactory.CreateClient();
 
-                http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(name.FullName, name.Version?.ToString()));
-                http.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", auth);
+                http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(name.Name ?? name.FullName.Split(',')[0], name.Version?.ToString()));
+                http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth[7..]);
                 var resp = await http.GetAsync("https://api.github.com/user");
 
                 if (resp is { StatusCode: HttpStatusCode.OK, Content: { } content })
@@ -109,7 +109,7 @@ public static partial class AppServiceAuthenticationExtensions
                     // Retrieve verified emails too if possible
                     resp = await http.GetAsync("https://api.github.com/user/emails");
                     if (resp.IsSuccessStatusCode &&
-                        await content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
+                        await resp.Content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
                     {
                         // We only populate verified emails, otherwise, it would be trivial to fake.
                         foreach (var email in emails.Where(x => x.verified))
