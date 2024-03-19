@@ -83,19 +83,23 @@ namespace System
 "rebum", "stet", "clita", "kasd", "gubergren", "no", "sea", "takimata", "sanctus", "est", "lorem", "ipsum" };
 
         /// <summary>
-        /// Gets a random Lorem Ipsum phrase with the given word count, starting with "Lorem ipsum dolor sit amet" 
+        /// Gets a random Lorem Ipsum phrase with the given word count, starting with "Lorem ipsum" 
         /// and ending with a dot.
         /// </summary>
+        /// <remarks>
+        /// 'Lorem' is only added if requesting more than one word. Likewise, 
+        /// 'ipsum' is only added if requesting more than two words.
+        /// </remarks>
         public static string GetPhrase(int wordCount)
         {
             var result = new List<string>();
-            result.Add("Lorem");
-            result.Add("ipsum");
-            result.Add("dolor");
-            result.Add("sit");
-            result.Add("amet");
 
-            for (int i = 5; i <= wordCount; i++)
+            if (wordCount > 1)
+                result.Add("Lorem");
+            if (wordCount > 2)
+                result.Add("ipsum");
+
+            for (int i = result.Count; i <= wordCount; i++)
             {
                 result.Add(words[random.Next(words.Length - 1)]);
             }
