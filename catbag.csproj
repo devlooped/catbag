@@ -4,7 +4,6 @@
     <RootNamespace>System</RootNamespace>
     <AssemblyName>Devlooped</AssemblyName>
     <TargetFrameworks>net6.0</TargetFrameworks>
-    <TargetFrameworks Condition="$(BuildingInsideVisualStudio) != 'true'">netstandard2.0;$(TargetFrameworks)</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);CS7011</NoWarn>
