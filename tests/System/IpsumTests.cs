@@ -18,15 +18,32 @@ namespace System
         {
             var phrase = Ipsum.GetPhrase(10);
 
-            Assert.StartsWith("Lorem ipsum dolor sit amet", phrase);
+            Assert.StartsWith("Lorem ipsum ", phrase);
         }
 
         [Fact]
-        public void WhenGetting3Words_ThenStartsWithLoremIpsumDolor()
+        public void WhenGetting3Words_ThenStartsWithLoremIpsum()
         {
             var phrase = Ipsum.GetPhrase(3);
 
-            Assert.Equal("Lorem ipsum dolor.", phrase);
+            Assert.StartsWith("Lorem ipsum", phrase);
+        }
+
+        [Fact]
+        public void WhenGetting2Words_ThenStartsWithLoremButNoIpsum()
+        {
+            var phrase = Ipsum.GetPhrase(2);
+
+            Assert.StartsWith("Lorem", phrase);
+            Assert.NotEqual("Lorem ipsum.", phrase);
+        }
+
+        [Fact]
+        public void WhenGetting1Word_ThenDoesNotStartWithLorem()
+        {
+            var phrase = Ipsum.GetPhrase(1);
+
+            Assert.False(phrase.StartsWith("Lorem"));
         }
     }
 }
