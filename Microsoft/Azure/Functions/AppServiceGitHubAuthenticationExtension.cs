@@ -40,6 +40,7 @@ using Azure.Core;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Middleware;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Microsoft.Extensions.Hosting;
 
@@ -54,14 +55,34 @@ public static partial class AppServiceAuthenticationExtensions
     /// <see cref="FunctionContext.Features"/>.Set(<see cref="ClaimsPrincipal"/>) 
     /// as well as <see cref="FunctionContext.Features"/>.Set(<see cref="AccessToken"/>).
     /// </summary>
-    public static IFunctionsWorkerApplicationBuilder UseGitHubAuthentication(this IFunctionsWorkerApplicationBuilder builder)
+    public static IFunctionsWorkerApplicationBuilder UseGitHubAuthentication(this IFunctionsWorkerApplicationBuilder builder, bool populateEmails = false)
+        => builder.UseGitHubAuthentication(populateEmails, verifiedOnly: false);
+
+    /// <summary>
+    /// Populates a <see cref="ClaimsPrincipal"/> from an incoming GitHub bearer token and 
+    /// sets it into the <see cref="FunctionContext.Features"/> via 
+    /// <see cref="FunctionContext.Features"/>.Set(<see cref="ClaimsPrincipal"/>) 
+    /// as well as <see cref="FunctionContext.Features"/>.Set(<see cref="AccessToken"/>).
+    /// </summary>
+    public static IFunctionsWorkerApplicationBuilder UseGitHubAuthentication(this IFunctionsWorkerApplicationBuilder builder, bool populateEmails, bool verifiedOnly)
     {
         builder.UseMiddleware<GitHubTokenMiddleware>();
         builder.Services.AddHttpClient();
+        builder.Services.Configure<GitHubMiddlewareOptions>(options =>
+        {
+            options.PopulateEmails = populateEmails;
+            options.VerifiedOnly = verifiedOnly;
+        });
         return builder;
     }
 
-    class GitHubTokenMiddleware(IHttpClientFactory httpFactory) : IFunctionsWorkerMiddleware
+    class GitHubMiddlewareOptions
+    {
+        public bool PopulateEmails { get; set; } = false;
+        public bool VerifiedOnly { get; set; } = true;
+    }
+
+    class GitHubTokenMiddleware(IHttpClientFactory httpFactory, IOptions<GitHubMiddlewareOptions> options) : IFunctionsWorkerMiddleware
     {
         static readonly AssemblyName name = typeof(GitHubTokenMiddleware).Assembly.GetName();
         const string Scheme = "Bearer ";
@@ -112,19 +133,25 @@ public static partial class AppServiceAuthenticationExtensions
                         }
                     }
 
-                    // Retrieve verified emails too if possible
-                    resp = await http.GetAsync("https://api.github.com/user/emails");
-                    if (resp.IsSuccessStatusCode &&
-                        await resp.Content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
+                    // Retrieve verified emails too if configured so
+                    if (options.Value.PopulateEmails)
                     {
-                        var primary = claims.Find(x =>x.Type == ClaimTypes.Email);
-                        // NOTE: we already added the 'email' claim above, so we don't need to add it again.
-                        // We only populate verified emails, otherwise, it would be trivial to fake.
-                        foreach (var email in emails.Where(x => x.verified))
+                        resp = await http.GetAsync("https://api.github.com/user/emails");
+                        if (resp.IsSuccessStatusCode &&
+                            await resp.Content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
                         {
-                            // Don't duplicate the primary email.
-                            if (primary?.Value != email.email)
-                                claims.Add(new(ClaimTypes.Email, email.email));
+                            var primary = claims.Find(x => x.Type == ClaimTypes.Email);
+                            // NOTE: we already added the 'email' claim above, so we don't need to add it again.
+                            // We only populate verified emails, otherwise, it would be trivial to fake.
+                            if (options.Value.VerifiedOnly)
+                                emails = emails.Where(x => x.verified).ToArray();
+
+                            foreach (var email in emails)
+                            {
+                                // Don't duplicate the primary email.
+                                if (primary?.Value != email.email)
+                                    claims.Add(new(ClaimTypes.Email, email.email));
+                            }
                         }
                     }
 
