@@ -90,9 +90,9 @@ public static partial class AppServiceAuthenticationExtensions
                 http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth[7..]);
                 var resp = await http.GetAsync("https://api.github.com/user");
 
-                if (resp is { StatusCode: HttpStatusCode.OK, Content: { } content })
+                if (resp.IsSuccessStatusCode)
                 {
-                    var gh = await content.ReadAsStringAsync();
+                    var gh = await resp.Content.ReadAsStringAsync();
                     var claims = new List<Claim>();
                     var doc = JsonDocument.Parse(gh);
                     foreach (var prop in doc.RootElement.EnumerateObject())
@@ -118,6 +118,7 @@ public static partial class AppServiceAuthenticationExtensions
                         await resp.Content.ReadFromJsonAsync<Email[]>() is { Length: > 0 } emails)
                     {
                         var primary = claims.Find(x =>x.Type == ClaimTypes.Email);
+                        // NOTE: we already added the 'email' claim above, so we don't need to add it again.
                         // We only populate verified emails, otherwise, it would be trivial to fake.
                         foreach (var email in emails.Where(x => x.verified))
                         {
@@ -131,8 +132,7 @@ public static partial class AppServiceAuthenticationExtensions
                         new ClaimsIdentity(claims, "github")));
 
                     var token = auth[Scheme.Length..];
-                    // NOTE: we don't set any explicit expiration as we can't determine that from 
-                    // the token itself.
+                    // NOTE: we don't set any explicit expiration as we can't determine that from the token itself.
                     context.Features.Set(new AccessToken(token, DateTimeOffset.MaxValue));
                 }
             }
