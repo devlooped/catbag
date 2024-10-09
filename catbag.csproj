@@ -3,11 +3,12 @@
   <PropertyGroup>
     <RootNamespace>System</RootNamespace>
     <AssemblyName>Devlooped</AssemblyName>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);CS7011</NoWarn>
     <ImplicitUsings>disable</ImplicitUsings>
+    <UserSecretsId>02191a9e-c7d2-482c-bb42-0f5b198b37e9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,9 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Devlooped.Web" Version="1.2.3" />
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.8" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.20.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.2" />
@@ -27,6 +30,8 @@
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="PolySharp" Version="1.13.2" PrivateAssets="all" />
     <PackageReference Include="System.Reactive" Version="6.0.0" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0-rc.*" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
