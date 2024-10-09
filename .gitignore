@@ -37,3 +37,5 @@ _site
 .sass-cache
 Gemfile.lock
 package-lock.json
+
+catbag.sln
