@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 
 namespace System.Xml.Linq;
 
-public record AsDynamicSpec(ITestOutputHelper Output)
+public class AsDynamicSpec
 {
     [Fact]
     public void WhenAccessingAttribute_ThenUsesIndexerSyntaxWithString()

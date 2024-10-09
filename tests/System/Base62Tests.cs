@@ -4,7 +4,7 @@ using Xunit.Abstractions;
 
 namespace System
 {
-    public record Base62Tests(ITestOutputHelper Output)
+    public class Base62Tests(ITestOutputHelper Output)
     {
         [Fact]
         public void CanRoundtripValue()
