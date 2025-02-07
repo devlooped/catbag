@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Xunit;
 
-// Older version in the "wrong" folder and without namespace, for backs compat.
+namespace Xunit;
 
 public class SecretsFactAttribute : FactAttribute
 {
