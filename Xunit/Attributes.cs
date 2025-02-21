@@ -79,3 +79,21 @@ public class CITheoryAttribute : SecretsTheoryAttribute
             Skip = "CI-only test";
     }
 }
+
+public class DebuggerFactAttribute : FactAttribute
+{
+    public DebuggerFactAttribute()
+    {
+        if (!System.Diagnostics.Debugger.IsAttached)
+            Skip = "Only running in the debugger";
+    }
+}
+
+public class DebuggerTheoryAttribute : TheoryAttribute
+{
+    public DebuggerTheoryAttribute()
+    {
+        if (!System.Diagnostics.Debugger.IsAttached)
+            Skip = "Only running in the debugger";
+    }
+}
