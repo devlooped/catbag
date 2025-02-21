@@ -18,7 +18,7 @@ namespace System
     /// <summary>
     /// Utilities for finding the "dotnet.exe" file from the currently running .NET Core application
     /// </summary>
-    internal static class DotNetMuxer
+    static partial class DotNetMuxer
     {
         private const string MuxerName = "dotnet";
 
