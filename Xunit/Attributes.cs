@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Microsoft.Extensions.Configuration;
-using Xunit;
 
 namespace Xunit;
 
@@ -42,6 +42,36 @@ public class CIFactAttribute : FactAttribute
     {
         if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CI")))
             Skip = "CI-only test";
+    }
+}
+
+public class RuntimeFactAttribute : FactAttribute
+{
+    public RuntimeFactAttribute(string? osPlatform = default, Architecture? architecture = default, string? runtimeIdentifier = default)
+    {
+        if (osPlatform != null && !RuntimeInformation.IsOSPlatform(OSPlatform.Create(osPlatform)))
+            Skip = $"Only running on {osPlatform}.";
+
+        if (architecture != null && RuntimeInformation.ProcessArchitecture != architecture.Value)
+            Skip = $"Requires {architecture} but was {RuntimeInformation.ProcessArchitecture}.";
+
+        if (runtimeIdentifier != null && RuntimeInformation.RuntimeIdentifier != runtimeIdentifier)
+            Skip = $"Requires {runtimeIdentifier} but was {RuntimeInformation.RuntimeIdentifier}.";
+    }
+}
+
+public class RuntimeTheoryAttribute : TheoryAttribute
+{
+    public RuntimeTheoryAttribute(string? osPlatform = default, Architecture? architecture = default, string? runtimeIdentifier = default)
+    {
+        if (osPlatform != null && !RuntimeInformation.IsOSPlatform(OSPlatform.Create(osPlatform)))
+            Skip = $"Only running on {osPlatform}.";
+
+        if (architecture != null && RuntimeInformation.ProcessArchitecture != architecture.Value)
+            Skip = $"Requires {architecture} but was {RuntimeInformation.ProcessArchitecture}.";
+
+        if (runtimeIdentifier != null && RuntimeInformation.RuntimeIdentifier != runtimeIdentifier)
+            Skip = $"Requires {runtimeIdentifier} but was {RuntimeInformation.RuntimeIdentifier}.";
     }
 }
 
