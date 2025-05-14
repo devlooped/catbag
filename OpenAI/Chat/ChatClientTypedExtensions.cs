@@ -112,7 +112,7 @@ static partial class ChatClientTypedExtensions
 
     static BinaryData GetJsonSchema<T>()
     {
-        var node = JsonSchemaExporter.GetJsonSchemaAsNode(jsonOptions, typeof(T), new JsonSchemaExporterOptions
+        var node = JsonSchemaExporter.GetJsonSchemaAsNode(jsonOptions, typeof(T), new()
         {
             TreatNullObliviousAsNonNullable = true,
             TransformSchemaNode = (context, node) =>
