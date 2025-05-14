@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Configuration;
@@ -47,31 +48,73 @@ public class CIFactAttribute : FactAttribute
 
 public class RuntimeFactAttribute : FactAttribute
 {
-    public RuntimeFactAttribute(string? osPlatform = default, Architecture? architecture = default, string? runtimeIdentifier = default)
+    /// <summary>
+    /// Use <c>nameof(OSPLatform.Windows|Linux|OSX|FreeBSD)</c>
+    /// </summary>
+    public RuntimeFactAttribute(string osPlatform)
     {
         if (osPlatform != null && !RuntimeInformation.IsOSPlatform(OSPlatform.Create(osPlatform)))
             Skip = $"Only running on {osPlatform}.";
+    }
 
-        if (architecture != null && RuntimeInformation.ProcessArchitecture != architecture.Value)
+    public RuntimeFactAttribute(Architecture architecture)
+    {
+        if (RuntimeInformation.ProcessArchitecture != architecture)
             Skip = $"Requires {architecture} but was {RuntimeInformation.ProcessArchitecture}.";
+    }
 
-        if (runtimeIdentifier != null && RuntimeInformation.RuntimeIdentifier != runtimeIdentifier)
-            Skip = $"Requires {runtimeIdentifier} but was {RuntimeInformation.RuntimeIdentifier}.";
+    /// <summary>
+    /// Empty constructor for use in combination with RuntimeIdentifier property.
+    /// </summary>
+    public RuntimeFactAttribute() { }
+
+    /// <summary>
+    /// Sets the runtime identifier the test requires to run.
+    /// </summary>
+    public string? RuntimeIdentifier
+    {
+        get => RuntimeInformation.RuntimeIdentifier;
+        set
+        {
+            if (value != null && RuntimeInformation.RuntimeIdentifier != value)
+                Skip += $"Requires {value} but was {RuntimeInformation.RuntimeIdentifier}.";
+        }
     }
 }
 
 public class RuntimeTheoryAttribute : TheoryAttribute
 {
-    public RuntimeTheoryAttribute(string? osPlatform = default, Architecture? architecture = default, string? runtimeIdentifier = default)
+    /// <summary>
+    /// Use <c>nameof(OSPLatform.Windows|Linux|OSX|FreeBSD)</c>
+    /// </summary>
+    public RuntimeTheoryAttribute(string osPlatform)
     {
         if (osPlatform != null && !RuntimeInformation.IsOSPlatform(OSPlatform.Create(osPlatform)))
             Skip = $"Only running on {osPlatform}.";
+    }
 
-        if (architecture != null && RuntimeInformation.ProcessArchitecture != architecture.Value)
+    public RuntimeTheoryAttribute(Architecture architecture)
+    {
+        if (RuntimeInformation.ProcessArchitecture != architecture)
             Skip = $"Requires {architecture} but was {RuntimeInformation.ProcessArchitecture}.";
+    }
 
-        if (runtimeIdentifier != null && RuntimeInformation.RuntimeIdentifier != runtimeIdentifier)
-            Skip = $"Requires {runtimeIdentifier} but was {RuntimeInformation.RuntimeIdentifier}.";
+    /// <summary>
+    /// Empty constructor for use in combination with RuntimeIdentifier property.
+    /// </summary>
+    public RuntimeTheoryAttribute() { }
+
+    /// <summary>
+    /// Sets the runtime identifier the test requires to run.
+    /// </summary>
+    public string? RuntimeIdentifier
+    {
+        get => RuntimeInformation.RuntimeIdentifier;
+        set
+        {
+            if (value != null && RuntimeInformation.RuntimeIdentifier != value)
+                Skip += $"Requires {value} but was {RuntimeInformation.RuntimeIdentifier}.";
+        }
     }
 }
 
