@@ -21,7 +21,7 @@
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.8" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.20.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.2" />
@@ -29,7 +29,7 @@
     <PackageReference Include="EnvDTE" Version="17.6.36389" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="PolySharp" Version="1.13.2" PrivateAssets="all" />
-    <PackageReference Include="System.Reactive" Version="6.0.0" />
+    <PackageReference Include="System.Reactive" Version="6.0.1" />
     <PackageReference Include="System.Text.Json" Version="9.0.0-rc.*" />
     <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
   </ItemGroup>
