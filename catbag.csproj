@@ -3,9 +3,9 @@
   <PropertyGroup>
     <RootNamespace>System</RootNamespace>
     <AssemblyName>Devlooped</AssemblyName>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>Preview</LangVersion>
     <NoWarn>$(NoWarn);CS7011</NoWarn>
     <ImplicitUsings>disable</ImplicitUsings>
     <UserSecretsId>02191a9e-c7d2-482c-bb42-0f5b198b37e9</UserSecretsId>
@@ -32,6 +32,7 @@
     <PackageReference Include="System.Reactive" Version="6.0.0" />
     <PackageReference Include="System.Text.Json" Version="9.0.0-rc.*" />
     <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.10" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
