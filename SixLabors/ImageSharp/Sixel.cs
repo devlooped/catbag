@@ -26,6 +26,7 @@
 using System;
 using System.Buffers;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -39,16 +40,11 @@ namespace SixLabors.ImageSharp;
 /// Provides methods for converting images to Sixel format, which is a bitmap graphics format used
 /// to render images directly in the terminal.
 /// </summary>
-public static class Sixel
+static partial class Sixel
 {
-    const byte Cutoff = 127;
-    const string Prelude = "\x1BP7;1;q";
-    const string Epilogue = "\x1B\\";
-
     /// <summary>
     /// Detects if the terminal supports sixel graphics.
     /// </summary>
-    /// <returns></returns>
     public static bool DetectSupport()
     {
         // Use console capabilities to check for sixel support
@@ -71,8 +67,18 @@ public static class Sixel
     /// on the image.
     /// </summary>
     /// <param name="image"></param>
-    /// <returns></returns>
     public static string FromImage(Image<Rgba32> image) => image.ToSixel();
+}
+
+/// <summary>
+/// Provides extension methods for working with Sixel.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+static partial class SixelExtensions 
+{
+    const byte Cutoff = 127;
+    const string Prelude = "\x1BP7;1;q";
+    const string Epilogue = "\x1B\\";
 
     extension(Image<Rgba32> image)
     {
