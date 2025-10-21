@@ -1,5 +1,3 @@
-catbag.sln
-catbag.slnx
 bin
 obj
 artifacts
@@ -13,6 +11,7 @@ BenchmarkDotNet.Artifacts
 .genaiscript
 .idea
 local.settings.json
+.env
 
 *.suo
 *.sdf
