@@ -10,8 +10,8 @@
 	weak
 [file ".gitignore"]
 	url = https://github.com/devlooped/oss/blob/main/.gitignore
-	sha = ff61659751374b95c7a8a0477c908a8119f756f0
-	etag = e5865f083db45081a7b4eaa518018971b34e6ef93f917ac510dea96d27f792b3
+	sha = fefbf3606e7bb7f483951e3107200a2f45ee52e0
+	etag = 5bdfd49876c886aaa6b7026960261af9b587e7cc3baa0f4584db34d9cebbd3f4
 	weak
 [file "license.txt"]
 	url = https://github.com/devlooped/oss/blob/main/license.txt
@@ -20,8 +20,8 @@
 	weak
 [file ".github/dependabot.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/dependabot.yml
-	sha = 387f0616b2c56adc4f33f2858da818f7e0d92ef3
-	etag = a1aaba1440e5ee2a7b7f93fc0fb004d4e1d4d9780350c753f7c429e37241345a
+	sha = f14eef1c8fd55e275bd630f7392c190cbfce8cea
+	etag = 3f1ed461d9011d78f57966ab4f34f442a67db878b24278ae1bb39d2af3d0ad1b
 	weak
 [file ".github/workflows/build.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/build.yml
@@ -35,8 +35,8 @@
 	weak
 [file ".github/workflows/includes.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/includes.yml
-	sha = 7c1c6e615b5785e0ac9db33cb17343d6c1de16ff
-	etag = 5e6a10be141ee629201bfad01eae09b5c36a67f541ec7ab411ae400b5d73de1d
+	sha = d571412f07b0fb3c40023dc906f64906d7ed2b46
+	etag = ab627107749577bb619b024aff93027359b66b4c3f5a85a36b235e428387cd17
 	weak
 [file ".github/workflows/dotnet-env.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-env.yml
